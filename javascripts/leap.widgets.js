@@ -5,6 +5,8 @@
   var KNOB_COLOR = 0xff2222;
   var KNOB_COLOR_ACTIVE = 0x81d41d;
 
+  var BALL_COLOR = 0xff2222;
+	
   var BACKGROUND_COLOR = 0x000000;
 
   window.LeapWidgets = function (scene) {
@@ -348,5 +350,38 @@
       }
       slider.lastvalue = value;
     });
+  };
+  
+  
+   LeapWidgets.prototype.createBall = function(initial, position, dimensions) {
+    var ball = new Physijs.BoxMesh(
+      new THREE.BoxGeometry(50, dimensions.y, dimensions.z),
+      Physijs.createMaterial(new THREE.MeshPhongMaterial({
+        color: BALL_COLOR
+      }), 1, 0),
+      350
+    );
+    ball.originalposition = new THREE.Vector3(position.x, position.y, position.z);
+    ball.minposition = position.x - dimensions.x + ball.geometry.parameters.width*2;
+    ball.maxposition = position.x + dimensions.x - ball.geometry.parameters.width*2;
+    ball.position.copy(ball.originalposition);
+    ball.receiveShadow = true;
+    ball.castShadow = true;
+    this.scene.add(ball);
+
+//    this.createLabel(text, new THREE.Vector3(0, 0, dimensions.z/2+1), 14, 0xffffff, slider);
+
+    ball.sliderConstraint = new Physijs.SliderConstraint(
+      ball,
+      null,
+      new THREE.Vector3().copy(ball.originalposition),
+      new THREE.Vector3(0, 1, 0)
+    );
+    this.scene.addConstraint(ball.sliderConstraint);
+    ball.sliderConstraint.setLimits(-dimensions.x/2, dimensions.x/2, 0, 0);
+    ball.position.x = ball.minposition +  (ball.maxposition - ball.minposition) * (initial/100);
+    ball.__dirtyPosition = true;
+    this.sliders.push(ball);
+    return ball;
   };
 })();

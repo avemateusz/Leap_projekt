@@ -43,53 +43,61 @@
 
 	  var wall = widgets.createWall(new THREE.Vector3(0, 0, -200), new THREE.Vector3(800, 400, 100));
 	  
-      var knobCamera = widgets.createSwitch("KnobCam", new THREE.Vector3(wall.position.x-180, wall.position.y+wall.geometry.parameters.height/2 - 220, wall.position.z+200), 10, 100);
-      var angleLabelCam = widgets.createLabel("Camera:", new THREE.Vector3(-340, wall.position.y-120, wall.position.z+wall.geometry.parameters.depth/2+10), 16, 0xffffff);
-      var impactLabelCam = widgets.createLabel("0", new THREE.Vector3(-200, -120, wall.position.z+wall.geometry.parameters.depth/2+10), 16, 0xffffff);
+      var knobCamera = widgets.createSwitch("KnobCam", new THREE.Vector3(-180,0, 0), 10, 100);
+      var angleLabelCam = widgets.createLabel("0", new THREE.Vector3(-150, -40, 10), 10, 0xffffff);
+	  widgets.createLabel("Camera:", new THREE.Vector3(-210, -40, 10), 10, 0xffffff);
+      var impactLabelCam = widgets.createLabel("0", new THREE.Vector3(-150, 0, 10), 16, 0xffffff);
 
       knobCamera.addEventListener('control', function(evt) {
-          angleLabelCam.setText(Math.round(evt.angle*180/Math.PI) + '°');
+          angleLabelCam.setText(Math.round(evt.angle*180/Math.PI) + '°');//sprawdzic Math.round!!!!!!!!!!!!!!!!!
           impactLabelCam.setText(Math.round(evt.impact));
       });
       knobCamera.addEventListener('reset', function(evt) {
-          angleLabelCam.setText('Camera:');
+          angleLabelCam.setText('0');
           impactLabelCam.setText('0');
       });
 	  
 	  
-	  var knobPosi = widgets.createSwitch("KnobPosi", new THREE.Vector3(wall.position.x+340, wall.position.y+wall.geometry.parameters.height/2 + 50, wall.position.z+80), 10, 100);
-      var angleLabelPosi = widgets.createLabel("Position:", new THREE.Vector3(160, wall.position.y, wall.position.z+wall.geometry.parameters.depth/2+1), 16, 0xffffff);
-      var impactLabelPosi = widgets.createLabel("0", new THREE.Vector3(220, wall.position.y, wall.position.z+wall.geometry.parameters.depth/2+1), 16, 0xffffff);
+	  var knobPosi = widgets.createSwitch("KnobPosi", new THREE.Vector3(180,0, 0), 10, 100);
+      var angleLabelPosi = widgets.createLabel("0", new THREE.Vector3(200,-40, 10), 10, 0xffffff);
+	  widgets.createLabel("Position:", new THREE.Vector3(140, -40, 10), 10, 0xffffff);
+	  var impactLabelPosi = widgets.createLabel("0", new THREE.Vector3(200,0, 10), 16, 0xffffff);
 
       knobPosi.addEventListener('control', function(evt) {
           angleLabelPosi.setText(Math.round(evt.angle*180/Math.PI) + '°');
           impactLabelPosi.setText(Math.round(evt.impact));
       });
       knobPosi.addEventListener('reset', function(evt) {
-          angleLabelPosi.setText('Position:');
+          angleLabelPosi.setText('0');
           impactLabelPosi.setText('0');
       });
-	  
-	  
-      //knob.addEventListener('collision', function(other_object, relative_velocity, relative_rotation, contact_normal) {
-      //    console.log(knob._physijs.touches);
-      //    knob.setLinearVelocity(new THREE.Vector3().copy(other_object.position));
-      //    if (other_object.sticky && !other_object.point && other_object instanceof Physijs.SphereMesh) {
-      //        other_object.material.color.setHex(0x00000e);
-      //        other_object.point = new Physijs.PointConstraint(
-      //          knob,
-      //          other_object,
-      //          new THREE.Vector3().copy(knob.position)
-      //        );
-      //        window.scene.addConstraint(other_object.point);
-      //    }
-      //});
 	  
 	  var back = widgets.createButton("Back", new THREE.Vector3(0, 170, -75), new THREE.Vector3(50, 30, 30));
 	  back.addEventListener('press', function(evt) { window.location = '../index.html'; });
 	  
+	  var ballPosiX=0;
+	  var ballPosiY=0;
+	  var ballPosiZ=wall.position.z+wall.geometry.parameters.depth/2+20-0.3;
 	  
-
+	  
+	  knobPosi.addEventListener('collision', function(other_object, relative_velocity, relative_rotation, contact_normal) {
+          console.log(knobPosi._physijs.touches);
+          knobPosi.setLinearVelocity(new THREE.Vector3().copy(other_object.position));
+          if (other_object.sticky && !other_object.point && other_object instanceof Physijs.SphereMesh) {
+              other_object.material.color.setHex(0x00000e);
+              other_object.point = new Physijs.PointConstraint(
+                knob,
+                other_object,
+                new THREE.Vector3().copy(knobPosi.position)
+              );
+              window.scene.addConstraint(other_object.point);
+			  ball.setSize+=50; //zmiana wielkosci czerwonego klocka. nie dziala
+          }
+      });
+	  
+	  var ball= widgets.createBall(99.5, new THREE.Vector3(ballPosiX, ballPosiY, ballPosiZ), new THREE.Vector3(200, 100, 50));
+	  
+	  
       var spotLight = new THREE.SpotLight(0xffffff, 1);
       spotLight.shadowCameraVisible = true;
       spotLight.castShadow = true;
