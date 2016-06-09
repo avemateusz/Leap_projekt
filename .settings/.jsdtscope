@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="bower_components/jquery/src/manipulation/|bower_components/jquery/src/core/|**/node_modules/*|javascripts/|bower_components/sass-bootstrap/examples/offcanvas/|bower_components/jquery/src/manipulation/var/|bower_components/jquery/src/|bower_components/sass-bootstrap/|bower_components/jquery/src/traversing/var/|bower_components/jquery/src/event/|**/bower_components/*|bower_components/jquery/src/traversing/|javascripts/lib/|bower_components/sass-bootstrap/dist/js/|bower_components/jquery/src/core/var/|bower_components/jquery/src/sizzle/dist/|bower_components/jquery/src/data/var/|bower_components/jquery/src/ajax/var/|**/*.min.js|bower_components/jquery/src/css/var/|bower_components/sass-bootstrap/docs-assets/js/|bower_components/jquery/dist/|bower_components/jquery/src/ajax/|bower_components/sass-bootstrap/js/|bower_components/jquery/src/queue/|bower_components/jquery/src/exports/|bower_components/jquery/src/effects/|bower_components/jquery/src/css/|bower_components/jquery/src/attributes/|bower_components/jquery/src/var/|bower_components/jquery/src/data/|bower_components/sass-bootstrap/js/tests/vendor/|bower_components/sass-bootstrap/js/tests/unit/" kind="src" path=""/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/dist"/>
+	<classpathentry excluding="**/node_modules/*|core/var/|manipulation/|sizzle/dist/|ajax/|core/|data/var/|css/var/|ajax/var/|queue/|**/bower_components/*|exports/|effects/|event/|css/|manipulation/var/|attributes/|**/*.min.js|var/|traversing/|traversing/var/|data/" kind="src" path="bower_components/jquery/src"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js|var/" kind="src" path="bower_components/jquery/src/ajax"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/ajax/var"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/attributes"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js|var/" kind="src" path="bower_components/jquery/src/core"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/core/var"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js|var/" kind="src" path="bower_components/jquery/src/css"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/css/var"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js|var/" kind="src" path="bower_components/jquery/src/data"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/data/var"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/effects"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/event"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/exports"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js|var/" kind="src" path="bower_components/jquery/src/manipulation"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/manipulation/var"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/queue"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/sizzle/dist"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js|var/" kind="src" path="bower_components/jquery/src/traversing"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/traversing/var"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/jquery/src/var"/>
+	<classpathentry excluding="js/|js/tests/vendor/|**/bower_components/*|**/node_modules/*|js/tests/unit/|dist/js/|examples/offcanvas/|**/*.min.js|docs-assets/js/" kind="src" path="bower_components/sass-bootstrap"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/sass-bootstrap/dist/js"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/sass-bootstrap/docs-assets/js"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/sass-bootstrap/examples/offcanvas"/>
+	<classpathentry excluding="**/bower_components/*|tests/vendor/|**/node_modules/*|tests/unit/|**/*.min.js" kind="src" path="bower_components/sass-bootstrap/js"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/sass-bootstrap/js/tests/unit"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="bower_components/sass-bootstrap/js/tests/vendor"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|lib/|**/*.min.js" kind="src" path="javascripts"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="javascripts/lib"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
