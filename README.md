@@ -12,7 +12,7 @@ Do zrobienia:
 
 *"knobPosi" poruszajacy odpowiednio "ball" -
 
-*płaski "wall", długi. -
+*płaski "wall", długi. +
 
 *Generator labiryntu. -
 

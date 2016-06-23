@@ -10,9 +10,11 @@
   <script type="text/javascript" src="../javascripts/leap.widgets.js"></script>
   <script type="text/javascript" src="../javascripts/mazegener.js"></script>
   <style type="text/css">#connect-leap{zoom: 0.4;'}</style>
+  <!-- nagłówki. --> 
 </head>
 <body>
   <script type="text/javascript">
+  <!-- Stworzenie sceny o odpowiednich rozmarach, ustawienie jej w odpowiedniej pozycji. Dodanie jej koloru -->
     var initScene = function () {
       Physijs.scripts.worker = '../javascripts/lib/physijs_worker.js';
       window.scene = new Physijs.Scene();
@@ -40,15 +42,17 @@
       document.body.appendChild(window.renderer.domElement);
 
       window.widgets = new LeapWidgets(window.scene);
+      <!-- Dodanie ustawień knoba-->
       widgets.initLeapHand({sampleRecording: '../recordings/knob.lz'});
 
 	  var wall = widgets.createWall(new THREE.Vector3(0, 0, -400), new THREE.Vector3(1000, 200, -700));
-	  
+	  <!-- stworzenie knoba, napisów pokazujacych kat nachylenia wzgledem pkt. 0, 0, 0. Trzeba to zmienić- kont jest zawsze niewlaściwy-->
       var knobCamera = widgets.createSwitch("KnobCam", new THREE.Vector3(-180,0, 0), 10, 100);
       var angleLabelCam = widgets.createLabel("0", new THREE.Vector3(-150, -40, 10), 10, 0xffffff);
 	  widgets.createLabel("Camera:", new THREE.Vector3(-210, -40, 10), 10, 0xffffff);
       var impactLabelCam = widgets.createLabel("0", new THREE.Vector3(-150, 0, 10), 16, 0xffffff);
-
+	
+      <!--funkcja podaje kat-->
       knobCamera.addEventListener('control', function(evt) {
           angleLabelCam.setText(Math.round(evt.angle*180/Math.PI) + '�');//sprawdzic Math.round!!!!!!!!!!!!!!!!!
           impactLabelCam.setText(Math.round(evt.impact));
@@ -58,7 +62,7 @@
           impactLabelCam.setText('0');
       });
 	  
-	  
+	  <!--to samo co przy poprzednim knobie-->
 	  var knobPosi = widgets.createSwitch("KnobPosi", new THREE.Vector3(180,0, 0), 10, 100);
       var angleLabelPosi = widgets.createLabel("0", new THREE.Vector3(200,-40, 10), 10, 0xffffff);
 	  widgets.createLabel("Position:", new THREE.Vector3(140, -40, 10), 10, 0xffffff);
@@ -72,7 +76,7 @@
           angleLabelPosi.setText('0');
           impactLabelPosi.setText('0');
       });
-	  
+	  <!--implementacja i ustawienie przycisku do cofniecia sie do głównego menu -->
 	  var back = widgets.createButton("Back", new THREE.Vector3(0, 170, -75), new THREE.Vector3(50, 30, 30));
 	  back.addEventListener('press', function(evt) { window.location = '../index.html'; });
 	  
@@ -80,7 +84,8 @@
 	  var ballPosiY=0;
 	  var ballPosiZ=-30;
 	  
-	  
+	  <!--
+	  Dodanie sluchacza sprawdzającego czy knob odpowiedzialny za pozycje ball został dotknięty. Jeśli tak to porusz. TYMCZASOWO NIE DZIAŁA
 	  knobPosi.addEventListener('collision', function(other_object, relative_velocity, relative_rotation, contact_normal) {
           console.log(knobPosi._physijs.touches);
           knobPosi.setLinearVelocity(new THREE.Vector3().copy(other_object.position));
@@ -95,11 +100,11 @@
 			  ball.setSize+=50; //zmiana wielkosci czerwonego klocka. nie dziala
           }
       });
-	  
+	  -->
+	  <!-- Stworzenie pilki. Chwilowo wyglada jak sześcian. Dokładnie wytłumaczenie w pliku leap.widgets.js linia 105-->
 	  var ball= widgets.createBall(99.5, new THREE.Vector3(ballPosiX, ballPosiY, ballPosiZ), new THREE.Vector3(200, 100, 50));
 	  
-	  
-      var spotLight = new THREE.SpotLight(0xffffff, 1);
+	  var spotLight = new THREE.SpotLight(0xffffff, 1);
       spotLight.shadowCameraVisible = true;
       spotLight.castShadow = true;
       spotLight.shadowMapWidth = 6048;
@@ -110,6 +115,7 @@
       spotLight.target.position.copy(wall.position);
       scene.add(spotLight);
 
+      <!-- ustawienie kamery w odpowiedniej pozycji. tu bedzie jeszcze zabawa ze zmiana tych danych przy pomocy 2 knoba-->
       window.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
       window.camera.position.fromArray([0, wall.position.y+wall.geometry.parameters.height/3, 350]);
       window.camera.lookAt(new THREE.Vector3(0, wall.position.y, wall.position.z));

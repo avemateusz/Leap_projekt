@@ -352,7 +352,9 @@
     });
   };
   
-  
+  /* Chwilowo sciagniete z tworzenia klockow.
+   * musze odkruc jak sa stworzone "pilki" w knobie i w jakis sposob zmienic ta funkcje aby tworzyla piłkę a nie sześcian.
+   */
    LeapWidgets.prototype.createBall = function(initial, position, dimensions) {
     var ball = new Physijs.BoxMesh(
       new THREE.BoxGeometry(50, dimensions.y, dimensions.z),
