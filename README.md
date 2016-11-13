@@ -1,7 +1,7 @@
-Projekt zespołowy trzech studentów z Politechniki Lubleskiej, z wykorzystaniem leapmotion.
+Projekt zespołowy dwóch studentów z Politechniki Lubleskiej, z wykorzystaniem Leap Motion.
 
 
-Stworzony na podstawie https://github.com/raimo/leapjs-widgets .
+Stworzony na podstawie https://github.com/raimo/leapjs-widgets 
 
 
 Do zrobienia:
