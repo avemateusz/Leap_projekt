@@ -14,11 +14,8 @@ Do zrobienia:
 
 *płaski "wall", długi. +
 
-*Generator labiryntu. -
 
 *Upiększyc całość. -
-
-
 
 Ewentualnie:
 
