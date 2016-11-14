@@ -14,11 +14,7 @@ Do zrobienia:
 
 *płaski "wall", długi. +
 
+*Detale. -
 
-*Upiększyc całość. -
 
-Ewentualnie:
 
-*możliwość obrotu ekranu. -
-
-*zmiana sterowania "knobPosi" wzgledem przekrecenia ekranu. - 
